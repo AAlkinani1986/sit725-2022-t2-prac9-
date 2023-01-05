@@ -7,6 +7,7 @@ a variable itemToAppend with html code.
 */
 const addCards = (items) => {
   items.forEach((item) => {
+    console.log(item)
     let itemToAppend =
       '<div class="col s4 center-align">' +
       '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="./images/' +
@@ -17,12 +18,16 @@ const addCards = (items) => {
       item.title +
       '<i class="material-icons right">more_vert</i></span><p><a href="#">' +
       item.link +
-      '</a></p></div>' +
+      '</a></p>' +
+      `<a class="waves-effect waves-light red btn-small" 
+     " ><i class="material-icons right">
+      delete</i>Delete</a>` +
+      '</div>' +
       '<div class="card-reveal">' +
       '<span class="card-title grey-text text-darken-4">' +
       item.title +
       '<i class="material-icons right">close</i></span>' +
-      '<p class="card-text">' +
+      '<p class="black-text card-text">' +
       item.description +
       '</p>' +
       '</div></div></div>'
@@ -48,6 +53,19 @@ const submitForm = () => {
   addProjectToApp(formData)
 }
 //ajax
+// to delete post from the cards
+// function Delete(id) {
+//   console.log('id', id)
+//   $.ajax({
+//     url: '/api/project/delete',
+//     data: id,
+//     type: 'delete',
+//     success: (result) => {
+//       location.reload() // it automatically  reload the page
+//     },
+//   })
+// }
+//to add new post to the cards
 const addProjectToApp = (project) => {
   $.ajax({
     url: '/api/projects',

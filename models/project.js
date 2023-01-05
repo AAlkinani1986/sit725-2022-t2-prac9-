@@ -1,7 +1,7 @@
 let client = require('../dbConnect')
 let projectCollection
 setTimeout(() => {
-  projectCollection = client.db().collection('Projects')
+  projectCollection = client.db().collection('Pets')
 }, 2000)
 //Insert project
 const insertProjects = (project, callback) => {
