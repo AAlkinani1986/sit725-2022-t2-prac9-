@@ -44,12 +44,6 @@ describe('loadDataFromMongoDB', function () {
     })
   })
 })
-postData = {
-  title: 'download',
-  image: 'download.jpg',
-  link: 'download',
-  description: 'testing post data from website to mongoDB',
-}
 
 describe('insertDataToMongoDB', function () {
   postData = {
