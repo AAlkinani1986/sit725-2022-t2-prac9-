@@ -1,14 +1,15 @@
 {
-  "name": "site725-2022-t2-parc5",
+  "name": "site725-2022-t2-parc6",
   "version": "1.0.0",
-  "description": "Practical three Bootstrapping Express App",
+  "description": "Practical creating testing unit using mocha and chai",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AAlkinani1986/sit725-2022-t2-prac5.git"
+    "url": "https://github.com/AAlkinani1986/sit725-2022-t2-prac6.git"
   },
   "keywords": [
     "Nodejs",
@@ -21,10 +22,13 @@
   "author": "Ali Al-kinani",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
-    "mongodb": "^4.12.1"
+    "mocha": "^10.2.0",
+    "mongodb": "^4.12.1",
+    "request": "^2.88.2"
   }
 }

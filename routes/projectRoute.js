@@ -6,8 +6,9 @@ let controller = require('../controller')
 router.post('/api/projects/', (req, res) => {
   controller.projectController.createProject(req, res)
 })
-router.delete('/api/project/delete', (req, res) => {
-  console.log('req', req.body)
+router.delete('/api/project/:projectTitle', (req, res) => {
+  //console.log('title', req.params.projectTitle)
+  controller.projectController.deleteProject(req.params.projectTitle, res)
 })
 
 router.get('/api/projects/', (req, res) => {
