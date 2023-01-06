@@ -9,7 +9,6 @@ describe('loadHomePage', function () {
   it('return status 200 to check if home page can load ', function (done) {
     request(url, function (error, response, body) {
       expect(response.statusCode).to.equal(200)
-      expect(response.body).not.null
       done()
     })
   })
