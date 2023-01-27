@@ -14,4 +14,5 @@ router.delete('/api/project/:projectTitle', (req, res) => {
 router.get('/api/projects/', (req, res) => {
   controller.projectController.retrieveProject(req, res)
 })
+
 module.exports = router

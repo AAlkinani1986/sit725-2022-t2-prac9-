@@ -14,6 +14,6 @@ const deleteOne = (projectTitle, callback) => {
 }
 //get project...
 const getProjects = (callback) => {
-  projectCollection.find({}).toArray(callback)
+  projectCollection.find().toArray(callback)
 }
 module.exports = { insertProjects, getProjects, deleteOne }

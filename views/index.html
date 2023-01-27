@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Practical 7</title>
+    <meta name="description" content="basic template for SIT 725 Prac 7" />
+    <meta name="author" content="SitePoint" />
+
+    <meta property="og:title" content="SIT 725 Prac 7" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="basic template for SIT 725 Prac 7"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Custom Style Sheet-->
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <ul id="messages"></ul>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <form action="">
+            <div class="input-group">
+              <input
+                id="m"
+                autocomplete="off"
+                type="text"
+                class="form-control"
+                placeholder="Message..."
+                aria-label="Message..."
+              />
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="submit">Send</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io()
+      $('form').submit(() => {
+        socket.emit('message', $('#m').val())
+        $('#m').val('')
+        return false
+      })
+
+      socket.on('connect', () => {
+        // emiting to everybody
+        socket.emit('message', 'User connected')
+      })
+
+      socket.on('message', (msg) => {
+        $('#messages').append($('<li>').text(msg))
+      })
+    </script>
+  </body>
+</html>
